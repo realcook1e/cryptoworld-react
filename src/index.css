@@ -1,0 +1,77 @@
+:root {
+	--text-primary: #000;
+	--bgPrimary: #fff;
+	--bgSecondary: #f9f9f9;
+	--blue: #0071bd;
+	--light-blue: #e6f7ff;
+	--border: #d9d9d9;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+a:hover {
+	color: var(--blue) !important;
+}
+
+.app {
+	display: flex;
+	overflow: hidden;
+}
+
+.main {
+	flex: 0.8;
+	width: 100%;
+}
+
+.content {
+	padding: 20px;
+}
+
+.footer {
+	background-color: #001529;
+	display: flex;
+	flex-direction: column;
+	padding: 20px;
+	align-items: center;
+}
+
+@media screen and (max-width: 1300px) {
+	.main {
+		margin-left: 20px;
+	}
+}
+
+@media screen and (max-width: 1150px) {
+	.main {
+		margin-left: 50px;
+	}
+}
+
+@media screen and (max-width: 990px) {
+	.main {
+		margin-left: 90px;
+	}
+}
+
+@media screen and (max-width: 850px) {
+	.app {
+		flex-direction: column;
+		overflow: hidden;
+	}
+
+	.main {
+		flex: 1;
+		margin-top: 90px;
+		margin-left: 0px;
+		margin-right: 10px;
+	}
+
+	.ant-menu {
+		position: absolute;
+		right: 0px;
+	}
+}
