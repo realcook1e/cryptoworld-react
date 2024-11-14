@@ -3,7 +3,7 @@ import { Col, Row, Statistic, Typography } from "antd";
 import millify from "millify";
 import { Link } from "react-router-dom";
 
-import { useGetCryptosQuery } from "../../api/cryptoApi";
+import { useGetStatsQuery } from "../../api/cryptoApi";
 import News from "../News/News";
 import Currency from "../Currency/Currency";
 import styles from "./styles.module.scss";
@@ -11,8 +11,8 @@ import styles from "./styles.module.scss";
 const { Title } = Typography;
 
 const Home: FC = () => {
-	const { data, isLoading } = useGetCryptosQuery();
-	const globalStats = data?.data.stats;
+	const { data, isLoading } = useGetStatsQuery();
+	const globalStats = data?.data;
 
 	if (isLoading) {
 		return "Loading..."; //TODO: Add spinner
@@ -25,7 +25,7 @@ const Home: FC = () => {
 				<Col span={12}>
 					<Statistic
 						title='Total crypto currencies'
-						value={globalStats?.total}
+						value={globalStats?.totalCoins}
 					/>
 				</Col>
 				<Col span={12}>

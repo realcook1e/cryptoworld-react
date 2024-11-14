@@ -8,3 +8,13 @@
 .more {
 	margin-top: 0px !important;
 }
+
+@media screen and (max-width: 800px) {
+	.title {
+		font-size: 1.4rem !important;
+	}
+
+	.more {
+		font-size: 1.3rem !important;
+	}
+}

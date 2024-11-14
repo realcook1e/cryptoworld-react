@@ -36,4 +36,18 @@ interface Coin {
 	btcPrice: string;
 }
 
+interface GlobalStats extends Omit<CoinsStats, "total"> {
+	referenceCurrencyRate: number;
+	btcDominance: number;
+	bestCoins: Pick<
+		Coin,
+		"uuid" | "name" | "symbol" | "iconUrl" | "coinrankingUrl"
+	>[];
+	newestCoins: Pick<
+		Coin,
+		"uuid" | "name" | "symbol" | "iconUrl" | "coinrankingUrl"
+	>[];
+}
+
 export type CoinsResponse = SuccessResponse<CoinsData>;
+export type StatsResponse = SuccessResponse<GlobalStats>;

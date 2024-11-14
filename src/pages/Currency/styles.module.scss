@@ -1,0 +1,15 @@
+.container {
+	min-height: 65vh !important;
+}
+
+.card {
+	min-width: 250px;
+	.image {
+		width: 35px;
+	}
+}
+
+.search {
+	margin: 20px auto 30px auto;
+	width: 250px;
+}

@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { Avatar, Button, Menu, MenuProps, Typography } from "antd";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import {
 	BulbOutlined,
 	FundOutlined,
@@ -14,20 +14,24 @@ import styles from "./styles.module.scss";
 type MenuItem = Required<MenuProps>["items"][number];
 
 const items: MenuItem[] = [
-	{ key: "home", label: <Link to='/'>Home</Link>, icon: <HomeOutlined /> },
+	{
+		key: "home",
+		label: <NavLink to='/'>Home</NavLink>,
+		icon: <HomeOutlined />,
+	},
 	{
 		key: "currency",
-		label: <Link to='/currency'>Currency</Link>,
+		label: <NavLink to='/currency'>Currency</NavLink>,
 		icon: <FundOutlined />,
 	},
 	{
 		key: "exchanges",
-		label: <Link to='/exchanges'>Exchanges</Link>,
+		label: <NavLink to='/exchanges'>Exchanges</NavLink>,
 		icon: <MoneyCollectOutlined />,
 	},
 	{
 		key: "news",
-		label: <Link to='/news'>News</Link>,
+		label: <NavLink to='/news'>News</NavLink>,
 		icon: <BulbOutlined />,
 	},
 ];
