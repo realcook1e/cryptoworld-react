@@ -1,0 +1,162 @@
+.coinContainer {
+	margin: 30px;
+}
+
+.coinHeading {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	border-bottom: 1px solid var(--border);
+	padding-top: 20px;
+	padding-bottom: 20px;
+	gap: 10px;
+
+	p {
+		font-size: 1rem;
+		opacity: 0.9;
+		margin-bottom: 20px;
+	}
+}
+
+.periodSelect {
+	width: 200px !important;
+	margin-top: 20px !important;
+}
+
+h2.coinName {
+	font-weight: 900;
+	color: var(--pink);
+}
+
+.statsContainer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 40px;
+
+	h2 {
+		font-weight: 700;
+		font-size: 1.4rem;
+		margin-top: 20px;
+		color: var(--pink);
+	}
+}
+
+.coinValueStatsHeading {
+	p {
+		font-size: 1rem;
+		opacity: 0.9;
+	}
+}
+
+.coinDetailsHeading {
+	font-weight: 700 !important;
+	margin-top: 20px !important;
+	color: var(--pink) !important;
+}
+
+.coinStats {
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 1px solid var(--border);
+	font-size: 1rem;
+	opacity: 0.9;
+	padding: 20px;
+}
+
+.coinStatsName {
+	display: flex;
+	gap: 10px;
+	font-size: 1rem;
+}
+
+.stats {
+	font-weight: 800;
+}
+
+.coinDescInfo {
+	font-size: 18px;
+	margin-top: 10px;
+	line-height: 1.5;
+}
+
+.coinDescLink {
+	display: flex;
+	gap: 40px;
+	margin-top: 40px;
+	padding-top: 20px;
+
+	h2 {
+		font-weight: 700;
+		color: var(--pink);
+	}
+
+	p {
+		font-size: 1rem;
+		opacity: 0.9;
+	}
+
+	a {
+		color: var(--pink);
+	}
+
+	h3 {
+		font-weight: 700;
+	}
+}
+
+.coinDesc {
+	flex: 0.5;
+}
+
+.coinLinks {
+	padding: 0px 20px;
+	flex: 0.5;
+}
+
+.coinLink {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 1px solid var(--border);
+	padding: 20px;
+
+	a {
+		color: var(--pink);
+		font-weight: 700;
+		font-size: 1rem;
+	}
+}
+
+.coinLink:hover,
+.coinStats:hover {
+	background-color: var(--bgSecondary);
+}
+
+.linkName {
+	text-transform: capitalize;
+	font-size: 1rem;
+}
+
+@media screen and (max-width: 1000px) {
+	.statsContainer {
+		flex-direction: column;
+
+		h2 {
+			margin-top: 0px;
+		}
+	}
+	.coinDescLink {
+		flex-direction: column;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	.coinLinks {
+		padding: 0px;
+	}
+	.coinContainer {
+		margin: 0;
+	}
+}

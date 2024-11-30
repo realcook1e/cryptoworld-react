@@ -1,0 +1,37 @@
+.card {
+	min-height: 300px !important;
+
+	.container {
+		display: flex !important;
+		justify-content: space-between !important;
+	}
+
+	.title {
+		width: 70%;
+	}
+
+	.image {
+		width: 100px;
+		height: 100px;
+		object-fit: cover;
+	}
+
+	.descr {
+		color: black;
+		margin: 10px 0px !important;
+	}
+
+	.publisher {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.publisherName {
+		margin-left: 10px;
+	}
+}
+
+.select {
+	width: 180px;
+}

@@ -1,5 +1,9 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { CoinsResponse, StatsResponse } from "./api.types";
+import {
+	CoinResponse,
+	CoinsResponse,
+	StatsResponse,
+} from "./types/crypto.types";
 
 const baseUrl = "https://coinranking1.p.rapidapi.com";
 
@@ -26,7 +30,14 @@ export const cryptoApi = createApi({
 		getStats: builder.query<StatsResponse, void>({
 			query: () => "/stats",
 		}),
+		getCryproDetails: builder.query<CoinResponse, string>({
+			query: coinId => `/coin/${coinId}`,
+		}),
 	}),
 });
 
-export const { useGetCryptosQuery, useGetStatsQuery } = cryptoApi;
+export const {
+	useGetCryptosQuery,
+	useGetStatsQuery,
+	useGetCryproDetailsQuery,
+} = cryptoApi;

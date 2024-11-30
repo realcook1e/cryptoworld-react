@@ -1,4 +1,4 @@
-interface SuccessResponse<T> {
+interface CryptoApiResponse<T> {
 	status: "success";
 	data: T;
 }
@@ -36,6 +36,37 @@ interface Coin {
 	btcPrice: string;
 }
 
+interface CoinLink {
+	name: string;
+	url: string;
+	type: string;
+}
+
+interface CoinSupply {
+	confirmed: boolean;
+	supplyAt: number;
+	max: string;
+	total: string;
+	circulating: string;
+}
+
+interface CoinExtended extends Coin {
+	description: string;
+	websiteUrl: string;
+	links: CoinLink[];
+	supply: CoinSupply;
+	numberOfMarkets: number;
+	numberOfExchanges: number;
+	fullyDilutedMarketCap: string;
+	priceAt: number;
+	allTimeHigh: {
+		price: string;
+		timestamp: number;
+	};
+	hasContent: boolean;
+	tags: string[];
+}
+
 interface GlobalStats extends Omit<CoinsStats, "total"> {
 	referenceCurrencyRate: number;
 	btcDominance: number;
@@ -49,5 +80,6 @@ interface GlobalStats extends Omit<CoinsStats, "total"> {
 	>[];
 }
 
-export type CoinsResponse = SuccessResponse<CoinsData>;
-export type StatsResponse = SuccessResponse<GlobalStats>;
+export type CoinsResponse = CryptoApiResponse<CoinsData>;
+export type CoinResponse = CryptoApiResponse<{ coin: CoinExtended }>;
+export type StatsResponse = CryptoApiResponse<GlobalStats>;
