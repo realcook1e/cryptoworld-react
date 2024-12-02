@@ -83,6 +83,7 @@ h2.coinName {
 
 .coinDescLink {
 	display: flex;
+	align-items: center;
 	gap: 40px;
 	margin-top: 40px;
 	padding-top: 20px;
@@ -106,13 +107,8 @@ h2.coinName {
 	}
 }
 
-.coinDesc {
-	flex: 0.5;
-}
-
 .coinLinks {
 	padding: 0px 20px;
-	flex: 0.5;
 }
 
 .coinLink {
@@ -127,6 +123,13 @@ h2.coinName {
 		font-weight: 700;
 		font-size: 1rem;
 	}
+}
+
+.otherStats,
+.coinValueStats,
+.coinDesc,
+.coinLinks {
+	width: 100%;
 }
 
 .coinLink:hover,

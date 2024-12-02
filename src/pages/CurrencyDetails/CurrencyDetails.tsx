@@ -150,7 +150,11 @@ const CurrencyDetails: FC = () => {
 				coinName={cryptoDetails?.name || "not found"}
 			/>
 			<Col className={styles.statsContainer}>
-				<Col className={styles.coinValueStats}>
+				<Col
+					className={styles.coinValueStats}
+					lg={12}
+					xs={24}
+				>
 					<Col className={styles.coinValueStatsHeading}>
 						<Title
 							level={3}
@@ -173,7 +177,11 @@ const CurrencyDetails: FC = () => {
 						</Col>
 					))}
 				</Col>
-				<Col className={styles.otherStats}>
+				<Col
+					className={styles.otherStats}
+					lg={12}
+					xs={24}
+				>
 					<Col className={styles.coinValueStatsHeading}>
 						<Title
 							level={3}
@@ -198,7 +206,11 @@ const CurrencyDetails: FC = () => {
 				</Col>
 			</Col>
 			<Col className={styles.coinDescLink}>
-				<Col className={styles.coinDesc}>
+				<Col
+					className={styles.coinDesc}
+					lg={12}
+					xs={24}
+				>
 					<Title
 						level={3}
 						className={styles.coinDetailsHeading}
@@ -209,7 +221,11 @@ const CurrencyDetails: FC = () => {
 						{cryptoDetails?.description}
 					</p>
 				</Col>
-				<Col className={styles.coinLinks}>
+				<Col
+					className={styles.coinLinks}
+					lg={12}
+					xs={24}
+				>
 					<Title
 						level={3}
 						className={styles.coinDetailsHeading}
