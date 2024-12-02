@@ -15,18 +15,32 @@ import {
 	TrophyOutlined,
 } from "@ant-design/icons";
 
-import { useGetCryproDetailsQuery } from "../../api/cryptoApi";
+import {
+	useGetCryproDetailsQuery,
+	useGetCryproHistoryQuery,
+} from "../../api/cryptoApi";
+import { LineChart } from "../../components";
 import styles from "./styles.module.scss";
 
 const { Title, Text } = Typography;
 const { Option } = Select;
 
 const CurrencyDetails: FC = () => {
-	const { coinId } = useParams();
 	const [timePeriod, setTimePeriod] = useState("7d");
+	const { coinId } = useParams();
 
-	const { data, isLoading } = useGetCryproDetailsQuery(coinId);
-	const cryptoDetails = data?.data.coin;
+	const { data: cryptoDetailsData, isLoading } = useGetCryproDetailsQuery(
+		coinId!,
+		{ skip: !coinId }
+	);
+	const { data: coinHistoryData } = useGetCryproHistoryQuery(
+		{ coinId: coinId!, timePeriod },
+		{ skip: !coinId }
+	);
+	const cryptoDetails = cryptoDetailsData?.data.coin;
+	const coinHistory = coinHistoryData?.data;
+
+	if (isLoading) return "Loading...";
 
 	const time = ["3h", "24h", "7d", "30d", "1y", "3m", "3y", "5y"];
 
@@ -128,7 +142,13 @@ const CurrencyDetails: FC = () => {
 					<Option key={date}>{date}</Option>
 				))}
 			</Select>
-
+			<LineChart
+				coinHistory={coinHistory}
+				currentPrice={
+					cryptoDetails?.price ? millify(+cryptoDetails.price) : 0
+				}
+				coinName={cryptoDetails?.name || "not found"}
+			/>
 			<Col className={styles.statsContainer}>
 				<Col className={styles.coinValueStats}>
 					<Col className={styles.coinValueStatsHeading}>

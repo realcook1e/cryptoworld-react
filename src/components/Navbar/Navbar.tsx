@@ -1,10 +1,11 @@
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import { Avatar, Button, Menu, MenuProps, Typography } from "antd";
 import { Link, NavLink } from "react-router-dom";
 import {
 	BulbOutlined,
 	FundOutlined,
 	HomeOutlined,
+	MenuOutlined,
 	MoneyCollectOutlined,
 } from "@ant-design/icons";
 
@@ -37,6 +38,25 @@ const items: MenuItem[] = [
 ];
 
 const Navbar: FC = () => {
+	const [activeMenu, setActiveMenu] = useState(true);
+	const [screenSize, setScreenSize] = useState<number | null>(null);
+
+	useEffect(() => {
+		const handleResize = () => setScreenSize(window.innerWidth);
+		window.addEventListener("resize", handleResize);
+		handleResize();
+
+		return () => window.removeEventListener("resize", handleResize);
+	}, []);
+
+	useEffect(() => {
+		if (screenSize && screenSize < 768) {
+			setActiveMenu(false);
+		} else {
+			setActiveMenu(true);
+		}
+	}, [screenSize]);
+
 	return (
 		<nav className={styles.navbar}>
 			<div className={styles.container}>
@@ -51,14 +71,19 @@ const Navbar: FC = () => {
 					>
 						<Link to='/'>Cryptoworld</Link>
 					</Typography.Title>
-					{/* <Button className={styles.controlContainer}>
-
-					</Button> */}
+					<Button
+						className={styles.menuControl}
+						onClick={() => setActiveMenu(prev => !prev)}
+					>
+						<MenuOutlined />
+					</Button>
 				</div>
-				<Menu
-					theme='dark'
-					items={items}
-				/>
+				{activeMenu && (
+					<Menu
+						theme='dark'
+						items={items}
+					/>
+				)}
 			</div>
 		</nav>
 	);

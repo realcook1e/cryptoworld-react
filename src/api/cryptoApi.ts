@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import {
+	CoinHistoryResponse,
 	CoinResponse,
 	CoinsResponse,
 	StatsResponse,
@@ -33,6 +34,13 @@ export const cryptoApi = createApi({
 		getCryproDetails: builder.query<CoinResponse, string>({
 			query: coinId => `/coin/${coinId}`,
 		}),
+		getCryproHistory: builder.query<
+			CoinHistoryResponse,
+			{ coinId: string; timePeriod: string }
+		>({
+			query: ({ coinId, timePeriod }) =>
+				`/coin/${coinId}/history?timePeriod=${timePeriod}`,
+		}),
 	}),
 });
 
@@ -40,4 +48,5 @@ export const {
 	useGetCryptosQuery,
 	useGetStatsQuery,
 	useGetCryproDetailsQuery,
+	useGetCryproHistoryQuery,
 } = cryptoApi;

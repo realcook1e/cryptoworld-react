@@ -67,6 +67,15 @@ interface CoinExtended extends Coin {
 	tags: string[];
 }
 
+interface CoinHistoryItem {
+	price: string;
+	timestamp: number;
+}
+
+export interface CoinHistory {
+	change: string;
+	history: CoinHistoryItem[];
+}
 interface GlobalStats extends Omit<CoinsStats, "total"> {
 	referenceCurrencyRate: number;
 	btcDominance: number;
@@ -82,4 +91,5 @@ interface GlobalStats extends Omit<CoinsStats, "total"> {
 
 export type CoinsResponse = CryptoApiResponse<CoinsData>;
 export type CoinResponse = CryptoApiResponse<{ coin: CoinExtended }>;
+export type CoinHistoryResponse = CryptoApiResponse<CoinHistory>;
 export type StatsResponse = CryptoApiResponse<GlobalStats>;

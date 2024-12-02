@@ -1,0 +1,43 @@
+.heading {
+	padding: 0 1rem;
+}
+
+.exchangeList {
+	margin-top: 0.9rem;
+	border: 1px solid #ccc;
+	background-color: #fff;
+}
+
+.exchangeItem {
+	border-bottom: 1px solid #ccc;
+	cursor: pointer;
+	&:hover {
+		background-color: var(--bgSecondary);
+	}
+	&:last-child {
+		border-bottom: 0;
+	}
+	.content {
+		padding: 0.7rem 1rem;
+		align-items: center;
+	}
+	.name {
+		display: flex;
+		align-items: center;
+		gap: 0.9rem;
+	}
+	.logo {
+		max-width: 2rem;
+		max-height: 2rem;
+		object-fit: cover;
+		border-radius: 50%;
+	}
+}
+
+.description {
+	padding: 1.2rem 1rem;
+	border-top: 2px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	font-size: 1rem;
+	line-height: 1.5;
+}
