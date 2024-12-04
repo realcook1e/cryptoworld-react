@@ -40,6 +40,13 @@ a:hover {
 	align-items: center;
 }
 
+.loader {
+	height: 84vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 @media screen and (max-width: 850px) {
 	.app {
 		flex-direction: column;

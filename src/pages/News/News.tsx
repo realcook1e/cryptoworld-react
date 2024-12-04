@@ -1,11 +1,13 @@
 import { FC, useState } from "react";
 import { Select, Typography, Row, Col, Avatar, Card } from "antd";
 import moment from "moment";
-import { useGetNewsQuery } from "../../api/cryptoNewsApi";
-import noImage from "../../assets/images/no_image.png";
 
-import styles from "./styles.module.scss";
+import { useGetNewsQuery } from "../../api/cryptoNewsApi";
 import { useGetCryptosQuery } from "../../api/cryptoApi";
+import noImage from "../../assets/images/no_image.png";
+import { Loader } from "../../components";
+import styles from "./styles.module.scss";
+
 interface NewsProps {
 	isLimited?: boolean;
 }
@@ -25,7 +27,7 @@ const News: FC<NewsProps> = ({ isLimited = false }) => {
 		searchTerm: "",
 	});
 
-	if (isLoading) return "Loading..."; // TODO: add spinner
+	if (isLoading) return <Loader />;
 
 	return (
 		<Row gutter={[24, 24]}>

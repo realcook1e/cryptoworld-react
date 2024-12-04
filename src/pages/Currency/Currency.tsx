@@ -4,8 +4,9 @@ import { Link } from "react-router-dom";
 import { Card, Row, Col, Input } from "antd";
 
 import { useGetCryptosQuery } from "../../api/cryptoApi";
-import styles from "./styles.module.scss";
 import { useDebounce } from "../../hooks/useDebounce";
+import { Loader } from "../../components";
+import styles from "./styles.module.scss";
 
 interface CurrencyProps {
 	isLimited?: boolean;
@@ -38,7 +39,7 @@ const Currency: FC<CurrencyProps> = ({ isLimited = false }) => {
 			)}
 
 			{isLoading || searchTerm !== debouncedSearchTerm ? (
-				"Loading..."
+				<Loader />
 			) : (
 				<Row
 					gutter={[32, 16]}

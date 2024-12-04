@@ -19,7 +19,7 @@ import {
 	useGetCryproDetailsQuery,
 	useGetCryproHistoryQuery,
 } from "../../api/cryptoApi";
-import { LineChart } from "../../components";
+import { LineChart, Loader } from "../../components";
 import styles from "./styles.module.scss";
 
 const { Title, Text } = Typography;
@@ -40,7 +40,7 @@ const CurrencyDetails: FC = () => {
 	const cryptoDetails = cryptoDetailsData?.data.coin;
 	const coinHistory = coinHistoryData?.data;
 
-	if (isLoading) return "Loading...";
+	if (isLoading) return <Loader />;
 
 	const time = ["3h", "24h", "7d", "30d", "1y", "3m", "3y", "5y"];
 

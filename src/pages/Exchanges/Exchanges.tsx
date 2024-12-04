@@ -1,9 +1,11 @@
 import { FC, useState } from "react";
-import { useGetExchangesQuery } from "../../api/cryptoExchangesApi";
 import { Row, Col, Typography } from "antd";
-import styles from "./styles.module.scss";
 import millify from "millify";
 import HTMLReactParser from "html-react-parser/lib/index";
+
+import { useGetExchangesQuery } from "../../api/cryptoExchangesApi";
+import { Loader } from "../../components";
+import styles from "./styles.module.scss";
 
 const { Title } = Typography;
 
@@ -11,7 +13,7 @@ const Exchanges: FC = () => {
 	const [activeItem, setActiveItem] = useState<null | number>(null);
 	const { data, isLoading } = useGetExchangesQuery();
 
-	if (isLoading) return "Loading...";
+	if (isLoading) return <Loader />;
 
 	const handleClick = (index: number) => {
 		if (index === activeItem) {

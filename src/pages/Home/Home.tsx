@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { useGetStatsQuery } from "../../api/cryptoApi";
 import News from "../News/News";
 import Currency from "../Currency/Currency";
+import { Loader } from "../../components";
 import styles from "./styles.module.scss";
 
 const { Title } = Typography;
@@ -15,7 +16,7 @@ const Home: FC = () => {
 	const globalStats = data?.data;
 
 	if (isLoading) {
-		return "Loading..."; //TODO: Add spinner
+		return <Loader />;
 	}
 
 	return (
